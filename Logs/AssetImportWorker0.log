@@ -2199,3 +2199,19 @@ Received Import Request.
 Start importing Assets/Scripts/GameManager.cs using Guid(616708a3080f17f4282271d1e46b2a42) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '499876f7605a953577d6f91df4aa2e6b') in 0.007914 seconds 
   Import took 0.013963 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 112.627517 seconds.
+  path: Assets/Sprites/WizardBlue.png
+  artifactKey: Guid(a05196593344d6245b85ef676898d997) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/WizardBlue.png using Guid(a05196593344d6245b85ef676898d997) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '02900bc179a821b203e6aad5dd7e8741') in 0.314547 seconds 
+  Import took 0.319975 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 111.638501 seconds.
+  path: ProjectSettings/TagManager.asset
+  artifactKey: Guid(00000000000000003000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing ProjectSettings/TagManager.asset using Guid(00000000000000003000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dc0793052e2e588ed8656cf131db88df') in 0.012011 seconds 
+  Import took 0.020100 seconds .
+
