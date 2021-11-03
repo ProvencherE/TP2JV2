@@ -236,3 +236,59 @@ Received Import Request.
 Start importing Assets/Scripts/TowerManager.cs using Guid(c58290f635045e44d9ab17cbd24790fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '64a129a24f9c3f15299b5c0dc7760123') in 0.020094 seconds 
   Import took 0.023982 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 50.651911 seconds.
+  path: Assets/Prefabs/WizardBlue.prefab
+  artifactKey: Guid(70245622bbc834e448ab81fa9e1009cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/WizardBlue.prefab using Guid(70245622bbc834e448ab81fa9e1009cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '24fe28dbbc25d8c1b1d59aa34f4e88b4') in 0.116582 seconds 
+  Import took 0.121244 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 25.811209 seconds.
+  path: Assets/Prefabs/WizardBlue.prefab
+  artifactKey: Guid(70245622bbc834e448ab81fa9e1009cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/WizardBlue.prefab using Guid(70245622bbc834e448ab81fa9e1009cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fecf7e9af717b561267d847208d86b12') in 0.018959 seconds 
+  Import took 0.025649 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.006769 seconds.
+  path: Assets/Prefabs/WizardBlue.prefab
+  artifactKey: Guid(70245622bbc834e448ab81fa9e1009cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/WizardBlue.prefab using Guid(70245622bbc834e448ab81fa9e1009cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fecf7e9af717b561267d847208d86b12') in 0.017472 seconds 
+  Import took 0.020819 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.517765 seconds.
+  path: Assets/Prefabs/WizardBlue.prefab
+  artifactKey: Guid(70245622bbc834e448ab81fa9e1009cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/WizardBlue.prefab using Guid(70245622bbc834e448ab81fa9e1009cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f3c94608f4f6c46e616578074a4eedf') in 0.017180 seconds 
+  Import took 0.021819 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001278 seconds.
+  path: Assets/Prefabs/WizardBlue.prefab
+  artifactKey: Guid(70245622bbc834e448ab81fa9e1009cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/WizardBlue.prefab using Guid(70245622bbc834e448ab81fa9e1009cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f3c94608f4f6c46e616578074a4eedf') in 0.014655 seconds 
+  Import took 0.018054 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 19.807040 seconds.
+  path: Assets/Prefabs/WizardBlue.prefab
+  artifactKey: Guid(70245622bbc834e448ab81fa9e1009cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/WizardBlue.prefab using Guid(70245622bbc834e448ab81fa9e1009cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b1a3aa2367ebac40523da0295c3df3e5') in 0.019467 seconds 
+  Import took 0.024213 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.545876 seconds.
+  path: Assets/Prefabs/WizardBlue.prefab
+  artifactKey: Guid(70245622bbc834e448ab81fa9e1009cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/WizardBlue.prefab using Guid(70245622bbc834e448ab81fa9e1009cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca787dac52b16c442fd4a6e42194b3af') in 0.015053 seconds 
+  Import took 0.018490 seconds .
+
