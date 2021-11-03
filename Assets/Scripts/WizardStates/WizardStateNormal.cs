@@ -15,8 +15,11 @@ public class WizardStateNormal : WizardState
     // Update is called once per frame
     void Update()
     {
-        MoveWizard();
-        CheckRange();
+        if (!inBattle)
+        {
+            MoveWizard();
+            CheckRange();
+        }
     }
 
     private void CheckRange()
@@ -34,9 +37,15 @@ public class WizardStateNormal : WizardState
         {
             if(Vector2.Distance(transform.position, allEnemyWizards[i].transform.position)  < attackRange)
             {
+                shootProjectile(allEnemyWizards[i].transform.position);
                 break;
             }
         }
+    }
+
+    private void shootProjectile(Vector2 position)
+    {
+        throw new NotImplementedException();
     }
 
     public override void ManageStateChange()

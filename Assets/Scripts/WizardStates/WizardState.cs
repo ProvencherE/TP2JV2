@@ -12,6 +12,7 @@ public abstract class WizardState : MonoBehaviour
     protected float attackRange = 5f;
     protected bool isGreen = false;
     protected bool isBlue = false;
+    protected bool inBattle = false;
     // Start is called before the first frame update
     void Awake()
     {
