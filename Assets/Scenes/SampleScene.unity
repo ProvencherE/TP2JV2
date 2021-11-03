@@ -452,6 +452,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverText: {fileID: 1472242631}
+  spawningRate: 10
+  nbMaxWizard: 10
 --- !u!4 &745805263
 Transform:
   m_ObjectHideFlags: 0
