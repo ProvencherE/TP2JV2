@@ -15,4 +15,15 @@ public class WizardStateHide : WizardState
     {
         
     }
+
+    public override void ManageStateChange()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void MoveWizard()
+    {
+        throw new System.NotImplementedException();
+    }
+
 }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3920895417466971029}
   m_Layer: 7
   m_Name: WizardBlue
-  m_TagString: Wizard
+  m_TagString: BlueWizard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,9 +111,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0032930374, y: 0}
   serializedVersion: 2
-  m_Radius: 0.32
+  m_Radius: 0.24591064
 --- !u!50 &3920895417466971029
 Rigidbody2D:
   serializedVersion: 4
