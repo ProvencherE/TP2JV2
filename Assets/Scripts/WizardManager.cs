@@ -76,4 +76,10 @@ public class WizardManager : MonoBehaviour
             forestInContact = null;
     }
 
+    public void spawn(Vector3 position)
+    {
+        this.transform.position = new Vector3(position.x * 5 / 6, position.y, position.z);
+        this.gameObject.SetActive(true);
+    }
+
 }
