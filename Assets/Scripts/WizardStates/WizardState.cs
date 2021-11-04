@@ -13,6 +13,9 @@ public abstract class WizardState : MonoBehaviour
     protected bool isGreen = false;
     protected bool isBlue = false;
     protected bool inBattle = false;
+    protected GameObject[] towersToTarget;
+    protected GameObject[] allEnemyWizards;
+    protected GameObject targetedTower;
     // Start is called before the first frame update
     void Awake()
     {
