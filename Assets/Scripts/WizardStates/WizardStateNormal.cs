@@ -11,14 +11,16 @@ public class WizardStateNormal : WizardState
         int numberSelector = UnityEngine.Random.Range(0, 2);
         towersToTarget = new GameObject[3];
         speed = 3f;
-        attackRange = 5f;
+        attackRange = 2f;
         if (isBlue)
         {
             towersToTarget = GameObject.FindGameObjectsWithTag("GreenTower");
+            projectileBase = GameObject.FindGameObjectWithTag("BlueProjectile");
         }
         if (isGreen)
         {
             towersToTarget = GameObject.FindGameObjectsWithTag("BlueTower");
+            projectileBase = GameObject.FindGameObjectWithTag("GreenProjectile");
         }
         if(numberSelector == 0 && towersToTarget[0].activeSelf)
         {
