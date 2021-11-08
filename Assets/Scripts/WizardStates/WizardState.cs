@@ -4,16 +4,18 @@ using UnityEngine;
 
 public abstract class WizardState : MonoBehaviour
 {
+    [SerializeField] bool showDetails;
     protected WizardManager wizardManager;
     protected float speed;
     protected bool hiddenInForest = false;
     protected bool hiddenInTower = false;
-    protected float healthLevel = 30;
     protected const float MAX_HEALTH_LEVEL = 30;
     protected float attackRange = 5f;
     protected bool isGreen = false;
     protected bool isBlue = false;
     protected bool inBattle = false;
+    protected bool isSafe = false;
+    protected bool isHiding = false;
     protected int killCount = 0;
     protected GameObject[] towersToTarget;
     protected GameObject[] allEnemyWizards;
@@ -23,6 +25,10 @@ public abstract class WizardState : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        if (showDetails)
+        {
+            print("Changement d'état");
+        }
         if(tag == "GreenWizard")
         {
             isGreen = true;

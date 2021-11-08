@@ -8,6 +8,7 @@ public class WizardStateNormal : WizardState
     // Start is called before the first frame update
     void Start()
     {
+        gameObject.GetComponent<SpriteRenderer>().flipY = false;
         int numberSelector = UnityEngine.Random.Range(0, 2);
         towersToTarget = new GameObject[3];
         speed = 3f;
@@ -80,7 +81,7 @@ public class WizardStateNormal : WizardState
 
     public override void ManageStateChange()
     {
-        if(healthLevel <= MAX_HEALTH_LEVEL * 0.25)
+        if(gameObject.GetComponent<WizardManager>().healthLevel <= MAX_HEALTH_LEVEL * 0.25)
         {
             wizardManager.changeWizardState(WizardManager.wizardStateToSwitch.Flee);
         }
@@ -95,8 +96,6 @@ public class WizardStateNormal : WizardState
         if (!inBattle)
         {
             transform.position = Vector2.MoveTowards(transform.position, targetedTower.transform.position, speed * Time.deltaTime);
-            float angle = Mathf.Atan2(transform.position.x, transform.position.y) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
     }
 }
