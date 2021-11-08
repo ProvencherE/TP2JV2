@@ -5,7 +5,7 @@ using UnityEngine;
 public class WizardManager : MonoBehaviour
 {
     [SerializeField] private Sprite chosenSprite;
-    public enum wizardStateToSwitch { Normal, Flee, Hide, Safe, Fearless}
+    public enum wizardStateToSwitch { Normal, Flee, Hide, Safe, Fearless }
 
     private SpriteRenderer spriteRenderer;
     private WizardState wizardState;

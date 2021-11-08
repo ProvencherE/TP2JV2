@@ -41,6 +41,7 @@ public class WizardStateNormal : WizardState
     {
         MoveWizard();
         CheckRange();
+        ManageStateChange();
     }
 
     private void CheckRange()
@@ -79,9 +80,21 @@ public class WizardStateNormal : WizardState
         
     }
 
+    public void addKillToCount()
+    {
+        killCount++;
+    }
+
     public override void ManageStateChange()
     {
-        
+        if(healthLevel <= MAX_HEALTH_LEVEL * 0.25)
+        {
+            wizardManager.changeWizardState(WizardManager.wizardStateToSwitch.Flee);
+        }
+        else if (killCount >= 3)
+        {
+            wizardManager.changeWizardState(WizardManager.wizardStateToSwitch.Fearless);
+        }
     }
 
     public override void MoveWizard()
