@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Text gameOverText;
     [SerializeField] private float spawningRate;
     [SerializeField] private int nbMaxWizard;
+    [SerializeField] private GameObject greenWizard;
+    [SerializeField] private GameObject blueWizard;
 
     private float timerRespawn;
     private List<GameObject> greenTowers;
@@ -22,6 +24,8 @@ public class GameManager : MonoBehaviour
         timerRespawn = spawningRate;
         greenTowers = new List<GameObject>(GameObject.FindGameObjectsWithTag("GreenTower"));
         blueTowers = new List<GameObject>(GameObject.FindGameObjectsWithTag("BlueTower"));
+        instantiateWizard(blueWizards, blueWizard);
+        instantiateWizard(greenWizards, greenWizard);
     }
 
     // Update is called once per frame
@@ -39,15 +43,17 @@ public class GameManager : MonoBehaviour
         {
             GameObject tower = randomTower(greenTowers);
             GameObject wizard = firstNotActive(greenWizards);
-            if(wizard != null) wizard.GetComponent<WizardManager>().spawn(tower.transform.position);
-            tower = randomTower(greenTowers);
-            wizard = firstNotActive(greenWizards);
             if (wizard != null) wizard.GetComponent<WizardManager>().spawn(tower.transform.position);
+            tower = randomTower(blueTowers);
+            wizard = firstNotActive(blueWizards);
+            if (wizard != null) wizard.GetComponent<WizardManager>().spawn(tower.transform.position);
+            timerRespawn = spawningRate;
         }
     }
 
     private GameObject firstNotActive(GameObject[] wizards)
     {
+        Debug.Log(wizards);
         for(int i = 0; i < wizards.Length; i++)
         {
             if (!wizards[i].activeSelf)
@@ -61,6 +67,18 @@ public class GameManager : MonoBehaviour
     private GameObject randomTower(List<GameObject> towers)
     {
         return towers[UnityEngine.Random.Range(0, towers.Count)];
+    }
+
+    private void instantiateWizard(GameObject[] wizards, GameObject wizardPrefab)
+    {
+        wizards = new GameObject[nbMaxWizard];
+        for (int i = 0; i < nbMaxWizard; i++)
+        {
+            wizards[i] = Instantiate(wizardPrefab);
+            wizards[i].SetActive(false);
+        }
+        Debug.Log(wizards);
+        
     }
 
     public void towerDestroyed(GameObject towerDestroyed)

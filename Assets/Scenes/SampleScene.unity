@@ -454,6 +454,8 @@ MonoBehaviour:
   gameOverText: {fileID: 1472242631}
   spawningRate: 10
   nbMaxWizard: 10
+  greenWizard: {fileID: 4770402638485019243, guid: c8dcbdf6bf536ec47b840f0b5c6fe1b9, type: 3}
+  blueWizard: {fileID: 3560399409716513837, guid: 70245622bbc834e448ab81fa9e1009cd, type: 3}
 --- !u!4 &745805263
 Transform:
   m_ObjectHideFlags: 0
