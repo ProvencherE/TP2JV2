@@ -25,6 +25,10 @@ public abstract class WizardState : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        if (showDetails)
+        {
+            print("Changement d'état");
+        }
         if(tag == "GreenWizard")
         {
             isGreen = true;
