@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -31,6 +32,19 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetButtonDown("Submit"))
+        {
+            //On utilise enter ou space pour réinitialiser la scène
+            print("Reset has been pressed");
+            SceneManager.LoadScene("SampleScene");
+        }
+        if (Input.GetButtonDown("Cancel"))
+        {
+            //On utilise escape pour sortir
+            print("Escape has been pressed");
+            Application.Quit();
+            UnityEditor.EditorApplication.isPlaying = false;
+        }
         spawn();
     }
 
