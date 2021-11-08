@@ -14,6 +14,8 @@ public abstract class WizardState : MonoBehaviour
     protected bool isGreen = false;
     protected bool isBlue = false;
     protected bool inBattle = false;
+    protected bool isSafe = false;
+    protected bool isHiding = false;
     protected int killCount = 0;
     protected GameObject[] towersToTarget;
     protected GameObject[] allEnemyWizards;
