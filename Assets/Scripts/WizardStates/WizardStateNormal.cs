@@ -8,7 +8,7 @@ public class WizardStateNormal : WizardState
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.GetComponent<SpriteRenderer>().flipY = true;
+        gameObject.GetComponent<SpriteRenderer>().flipY = false;
         int numberSelector = UnityEngine.Random.Range(0, 2);
         towersToTarget = new GameObject[3];
         speed = 3f;
