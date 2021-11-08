@@ -24,7 +24,7 @@ public class WizardStateSafe : WizardState
         if(timeToRegenerate <= 0)
         {
             timeToRegenerate = 30;
-            healthLevel += 1;
+            gameObject.GetComponent<WizardManager>().healthLevel += 1;
         }
         else
         {
@@ -34,7 +34,7 @@ public class WizardStateSafe : WizardState
 
     public override void ManageStateChange()
     {
-        if(healthLevel >= MAX_HEALTH_LEVEL)
+        if(gameObject.GetComponent<WizardManager>().healthLevel >= MAX_HEALTH_LEVEL)
         {
             wizardManager.changeWizardState(WizardManager.wizardStateToSwitch.Normal);
         }

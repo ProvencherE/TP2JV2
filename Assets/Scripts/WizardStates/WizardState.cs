@@ -4,11 +4,11 @@ using UnityEngine;
 
 public abstract class WizardState : MonoBehaviour
 {
+    [SerializeField] bool showDetails;
     protected WizardManager wizardManager;
     protected float speed;
     protected bool hiddenInForest = false;
     protected bool hiddenInTower = false;
-    protected float healthLevel = 30;
     protected const float MAX_HEALTH_LEVEL = 30;
     protected float attackRange = 5f;
     protected bool isGreen = false;

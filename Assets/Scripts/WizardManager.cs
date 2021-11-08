@@ -9,6 +9,7 @@ public class WizardManager : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
     private WizardState wizardState;
+    public int healthLevel = 30;
 
     private Transform forestInContact = null;
 
@@ -18,6 +19,14 @@ public class WizardManager : MonoBehaviour
         wizardState = GetComponent<WizardState>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = chosenSprite;
+    }
+
+    private void Update()
+    {
+        if(healthLevel < 0)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     public void changeWizardState(wizardStateToSwitch nextState)
