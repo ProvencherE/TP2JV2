@@ -9,9 +9,17 @@ public abstract class WizardState : MonoBehaviour
     protected bool hiddenInForest = false;
     protected bool hiddenInTower = false;
     protected float healthLevel = 30;
+    protected const float MAX_HEALTH_LEVEL = 30;
     protected float attackRange = 5f;
     protected bool isGreen = false;
     protected bool isBlue = false;
+    protected bool inBattle = false;
+    protected int killCount = 0;
+    protected GameObject[] towersToTarget;
+    protected GameObject[] allEnemyWizards;
+    protected GameObject[] projectiles;
+    protected GameObject projectileBase;
+    protected GameObject targetedTower;
     // Start is called before the first frame update
     void Awake()
     {
