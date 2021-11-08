@@ -24,8 +24,7 @@ public class GameManager : MonoBehaviour
         timerRespawn = spawningRate;
         greenTowers = new List<GameObject>(GameObject.FindGameObjectsWithTag("GreenTower"));
         blueTowers = new List<GameObject>(GameObject.FindGameObjectsWithTag("BlueTower"));
-        instantiateWizard(blueWizards, blueWizard);
-        instantiateWizard(greenWizards, greenWizard);
+        instantiateWizard();
     }
 
     // Update is called once per frame
@@ -53,7 +52,6 @@ public class GameManager : MonoBehaviour
 
     private GameObject firstNotActive(GameObject[] wizards)
     {
-        Debug.Log(wizards);
         for(int i = 0; i < wizards.Length; i++)
         {
             if (!wizards[i].activeSelf)
@@ -69,15 +67,17 @@ public class GameManager : MonoBehaviour
         return towers[UnityEngine.Random.Range(0, towers.Count)];
     }
 
-    private void instantiateWizard(GameObject[] wizards, GameObject wizardPrefab)
+    private void instantiateWizard()
     {
-        wizards = new GameObject[nbMaxWizard];
+        blueWizards = new GameObject[nbMaxWizard];
+        greenWizards = new GameObject[nbMaxWizard];
         for (int i = 0; i < nbMaxWizard; i++)
         {
-            wizards[i] = Instantiate(wizardPrefab);
-            wizards[i].SetActive(false);
+            blueWizards[i] = Instantiate(blueWizard);
+            greenWizards[i] = Instantiate(greenWizard);
+            blueWizards[i].SetActive(false);
+            greenWizards[i].SetActive(false);
         }
-        Debug.Log(wizards);
         
     }
 
