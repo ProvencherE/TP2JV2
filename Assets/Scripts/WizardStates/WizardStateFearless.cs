@@ -13,17 +13,21 @@ public class WizardStateFearless : WizardState
     // Update is called once per frame
     void Update()
     {
-        
+        MoveWizard();
+        ManageStateChange();
     }
 
     public override void ManageStateChange()
     {
-        throw new System.NotImplementedException();
+        if (gameObject.GetComponent<WizardManager>().healthLevel <= MAX_HEALTH_LEVEL * 0.25)
+        {
+            wizardManager.changeWizardState(WizardManager.wizardStateToSwitch.Flee);
+        }
     }
 
     public override void MoveWizard()
     {
-        throw new System.NotImplementedException();
+        speed += 0.1f;
     }
 
 }
