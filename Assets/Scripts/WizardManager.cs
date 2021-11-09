@@ -106,6 +106,6 @@ public class WizardManager : MonoBehaviour
     public void setDamage(int damage)
     {
         if(forestInContact != null) damage = (int)(damage * damageReceiveInForest) ;
-        wizardState.setDamage(damage);
+        healthLevel -= damage;
     }
 }

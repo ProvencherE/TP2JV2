@@ -57,9 +57,4 @@ public abstract class WizardState : MonoBehaviour
         if (!projectileBase.activeSelf) projectileBase.GetComponent<ProjectileMovement>().fire(transform.position, target);
     }
 
-    public void setDamage(int damage)
-    {
-        healthLevel -= damage;
-    }
-
 }
