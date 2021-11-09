@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3627027994755785697}
   - component: {fileID: -5580453681979858213}
   - component: {fileID: 3807595957257382610}
+  - component: {fileID: 6035594156352931596}
   m_Layer: 0
   m_Name: ProjectileBlue
   m_TagString: BlueProjectile
@@ -69,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 860596227
-  m_SortingLayer: 1
+  m_SortingLayerID: 2005263045
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8ac569573eefafe43bdf780d390f1523, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -99,3 +100,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.055
+--- !u!114 &6035594156352931596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4724284598831890846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b771556a563189e4498eee284bbf6b72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileSpeed: 1
+  damage: 25

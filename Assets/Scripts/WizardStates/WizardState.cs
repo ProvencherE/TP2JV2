@@ -46,4 +46,20 @@ public abstract class WizardState : MonoBehaviour
     public abstract void MoveWizard();
 
     public abstract void ManageStateChange();
+
+    public void asignProjectile(GameObject projectile)
+    {
+        projectileBase = projectile;
+    }
+
+    protected void shootProjectile(GameObject target)
+    {
+        if (!projectileBase.activeSelf) projectileBase.GetComponent<ProjectileMovement>().fire(transform.position, target);
+    }
+
+    public void setDamage(int damage)
+    {
+        healthLevel -= damage;
+    }
+
 }

@@ -16,12 +16,10 @@ public class WizardStateNormal : WizardState
         if (isBlue)
         {
             towersToTarget = GameObject.FindGameObjectsWithTag("GreenTower");
-            projectileBase = GameObject.FindGameObjectWithTag("BlueProjectile");
         }
         if (isGreen)
         {
             towersToTarget = GameObject.FindGameObjectsWithTag("BlueTower");
-            projectileBase = GameObject.FindGameObjectWithTag("GreenProjectile");
         }
         if(numberSelector == 0 && towersToTarget[0].activeSelf)
         {
@@ -59,7 +57,7 @@ public class WizardStateNormal : WizardState
         }
         if(Vector2.Distance(transform.position, targetedTower.transform.position) < attackRange)
         {
-            shootProjectile(targetedTower.transform.position);
+            shootProjectile(targetedTower);
             inBattle = true;
         }
         else
@@ -68,17 +66,12 @@ public class WizardStateNormal : WizardState
             {
                 if (allEnemyWizards[i].activeSelf && Vector2.Distance(transform.position, allEnemyWizards[i].transform.position) < attackRange)
                 {
-                    shootProjectile(allEnemyWizards[i].transform.position);
+                    shootProjectile(allEnemyWizards[i]);
                     inBattle = true;
                     break;
                 }
             }
         }
-    }
-
-    private void shootProjectile(Vector2 position)
-    {
-        
     }
 
     public void addKillToCount()

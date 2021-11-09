@@ -21,7 +21,7 @@ public class TowerManager : MonoBehaviour
         
     }
 
-    private void setDamage(int damage)
+    public void setDamage(int damage)
     {
         life -= damage;
         if(life <= 0)
@@ -29,4 +29,5 @@ public class TowerManager : MonoBehaviour
             gameManager.GetComponent<GameManager>().towerDestroyed(this.gameObject);
         }
     }
+
 }
