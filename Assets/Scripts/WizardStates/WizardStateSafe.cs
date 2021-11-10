@@ -50,14 +50,9 @@ public class WizardStateSafe : WizardState
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
-        
-    }
-    private void OnCollisionStay2D(Collider2D collision)
-    {
         if (!collision.gameObject.activeSelf)
         {
             wizardManager.changeWizardState(WizardManager.wizardStateToSwitch.Normal);
         }
     }
-
 }
