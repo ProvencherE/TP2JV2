@@ -65,6 +65,10 @@ public class WizardStateFlee : WizardState
     // Update is called once per frame
     void Update()
     {
+        if(gameObject.GetComponent<WizardManager>().healthLevel <= 0)
+        {
+            gameObject.SetActive(false);
+        }
         MoveWizard();
     }
 
@@ -75,21 +79,40 @@ public class WizardStateFlee : WizardState
 
     public override void MoveWizard()
     {
-        throw new System.NotImplementedException();
+        transform.position = Vector2.MoveTowards(transform.position, targetedTower.transform.position, speed * Time.deltaTime);
     }
-
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (isBlue)
+        {
+            if (collision.gameObject.tag == "BlueTower")
+            {
+                wizardManager.changeWizardState(WizardManager.wizardStateToSwitch.Safe);
+            }
+        }
+        else if (isGreen)
+        {
+            if (collision.gameObject.tag == "GreenTower")
+            {
+                wizardManager.changeWizardState(WizardManager.wizardStateToSwitch.Safe);
+            }
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (isBlue)
         {
             if(collision.gameObject.tag == "BlueForest")
             {
-
+                wizardManager.changeWizardState(WizardManager.wizardStateToSwitch.Hide);
             }
         }
         else if (isGreen)
         {
-
+            if (collision.gameObject.tag == "GreenForest")
+            {
+                wizardManager.changeWizardState(WizardManager.wizardStateToSwitch.Hide);
+            }
         }
     }
 
