@@ -115,4 +115,10 @@ public class WizardManager : MonoBehaviour
         if(forestInContact != null) damage = (int)(damage * damageReceiveInForest) ;
         healthLevel -= damage;
     }
+
+    public void heal(int life)
+    {
+        healthLevel += life;
+        if(healthLevel >= WizardState.MAX_HEALTH_LEVEL)healthLevel = WizardState.MAX_HEALTH_LEVEL;
+    }
 }
