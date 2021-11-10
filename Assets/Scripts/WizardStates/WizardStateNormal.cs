@@ -9,15 +9,16 @@ public class WizardStateNormal : WizardState
     void Start()
     {
         gameObject.GetComponent<SpriteRenderer>().flipY = false;
-        towersToTarget = new GameObject[3];
         speed = 3f;
-        attackRange = 2f;
+        attackRange = 4f;
         if (isBlue)
         {
+            towersToTarget = new GameObject[GameObject.FindGameObjectsWithTag("GreenTower").Length];
             towersToTarget = GameObject.FindGameObjectsWithTag("GreenTower");
         }
-        if (isGreen)
+        else if (isGreen)
         {
+            towersToTarget = new GameObject[GameObject.FindGameObjectsWithTag("BlueTower").Length];
             towersToTarget = GameObject.FindGameObjectsWithTag("BlueTower");
         }
         //Trouver le code ici: https://forum.unity.com/threads/clean-est-way-to-find-nearest-object-of-many-c.44315/

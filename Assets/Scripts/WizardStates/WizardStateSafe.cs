@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class WizardStateSafe : WizardState
 {
-    int timeToRegenerate = 30;
+    int timeToRegenerate = 20;
     // Start is called before the first frame update
     void Start()
     {
