@@ -22,7 +22,7 @@ public class WizardStateFlee : WizardState
         {
             towersToFleeTo = new GameObject[GameObject.FindGameObjectsWithTag("GreenTower").Length];
             towersToFleeTo = GameObject.FindGameObjectsWithTag("GreenTower");
-            potentialForestToHideTo = GameObject.FindGameObjectsWithTag("BlueForest");
+            potentialForestToHideTo = GameObject.FindGameObjectsWithTag("GreenForest");
         }
         determineNearestFleeingPosition();
     }
@@ -37,7 +37,7 @@ public class WizardStateFlee : WizardState
         foreach (GameObject tower in towersToFleeTo)
         {
             float dist = Vector2.Distance(tower.transform.position, currentPos);
-            if (dist < minDist)
+            if (dist <= minDist)
             {
                 nearestTower = tower;
                 minDist = dist;
@@ -46,17 +46,17 @@ public class WizardStateFlee : WizardState
         foreach (GameObject forest in potentialForestToHideTo)
         {
             float dist = Vector2.Distance(forest.transform.position, currentPos);
-            if (dist < minDist)
+            if (dist <= minDist)
             {
                 nearestTower = forest;
                 minDist = dist;
             }
         }
-        if(Vector2.Distance(nearestTower.transform.position, currentPos) < Vector2.Distance(nearestForest.transform.position, currentPos))
+        if(Vector2.Distance(nearestTower.transform.position, currentPos) <= Vector2.Distance(nearestForest.transform.position, currentPos))
         {
             fleeingPosition = nearestTower;
         }
-        else if(Vector2.Distance(nearestTower.transform.position, currentPos) > Vector2.Distance(nearestForest.transform.position, currentPos))
+        else if(Vector2.Distance(nearestTower.transform.position, currentPos) >= Vector2.Distance(nearestForest.transform.position, currentPos))
         {
             fleeingPosition = nearestForest;
         }
@@ -79,7 +79,7 @@ public class WizardStateFlee : WizardState
 
     public override void MoveWizard()
     {
-        transform.position = Vector2.MoveTowards(transform.position, targetedTower.transform.position, speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, fleeingPosition.transform.position, speed * Time.deltaTime);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -87,6 +87,7 @@ public class WizardStateFlee : WizardState
         {
             if (collision.gameObject.tag == "BlueTower")
             {
+                gameObject.transform.position = collision.gameObject.transform.position;
                 wizardManager.changeWizardState(WizardManager.wizardStateToSwitch.Safe);
             }
         }
@@ -94,6 +95,7 @@ public class WizardStateFlee : WizardState
         {
             if (collision.gameObject.tag == "GreenTower")
             {
+                gameObject.transform.position = collision.gameObject.transform.position;
                 wizardManager.changeWizardState(WizardManager.wizardStateToSwitch.Safe);
             }
         }
@@ -104,6 +106,7 @@ public class WizardStateFlee : WizardState
         {
             if(collision.gameObject.tag == "BlueForest")
             {
+                gameObject.transform.position = collision.gameObject.transform.position;
                 wizardManager.changeWizardState(WizardManager.wizardStateToSwitch.Hide);
             }
         }
@@ -111,6 +114,7 @@ public class WizardStateFlee : WizardState
         {
             if (collision.gameObject.tag == "GreenForest")
             {
+                gameObject.transform.position = collision.gameObject.transform.position;
                 wizardManager.changeWizardState(WizardManager.wizardStateToSwitch.Hide);
             }
         }

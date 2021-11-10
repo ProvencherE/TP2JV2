@@ -1089,6 +1089,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrassPatch
       objectReference: {fileID: 0}
+    - target: {fileID: 6175145783681293685, guid: 9c643c1a5a6b72844b6f760e29d4baa4, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 7825134827229931164, guid: 9c643c1a5a6b72844b6f760e29d4baa4, type: 3}
       propertyPath: m_RootOrder
       value: 1

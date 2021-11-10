@@ -16,6 +16,7 @@ TagManager:
   - Tower
   - GreenForest
   - BlueForest
+  - Ground
   layers:
   - Default
   - TransparentFX
