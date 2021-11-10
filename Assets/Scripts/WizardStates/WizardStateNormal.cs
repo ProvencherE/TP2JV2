@@ -11,28 +11,7 @@ public class WizardStateNormal : WizardState
         gameObject.GetComponent<SpriteRenderer>().flipY = false;
         speed = 3f;
         attackRange = 4f;
-        if (isBlue)
-        {
-            towersToTarget = new GameObject[GameObject.FindGameObjectsWithTag("GreenTower").Length];
-            towersToTarget = GameObject.FindGameObjectsWithTag("GreenTower");
-        }
-        else if (isGreen)
-        {
-            towersToTarget = new GameObject[GameObject.FindGameObjectsWithTag("BlueTower").Length];
-            towersToTarget = GameObject.FindGameObjectsWithTag("BlueTower");
-        }
-        //Trouver le code ici: https://forum.unity.com/threads/clean-est-way-to-find-nearest-object-of-many-c.44315/
-        float minDist = Mathf.Infinity;
-        Vector2 currentPos = transform.position;
-        foreach (GameObject tower in towersToTarget)
-        {
-            float dist = Vector2.Distance(tower.transform.position, currentPos);
-            if(dist < minDist)
-            {
-                targetedTower = tower;
-                minDist = dist;
-            }
-        }
+        findNearestTower();
     }
 
     // Update is called once per frame
@@ -61,11 +40,20 @@ public class WizardStateNormal : WizardState
         }
         if(Vector2.Distance(transform.position, targetedTower.transform.position) < attackRange)
         {
-            shootProjectile(targetedTower);
-            inBattle = true;
+            if (targetedTower.activeSelf)
+            {
+                shootProjectile(targetedTower);
+                inBattle = true;
+            }
+            else
+            {
+                findNearestTower();
+                inBattle = false;
+            }
         }
         else
         {
+            int counter = 0;
             for (int i = 0; i < allEnemyWizards.Length; i++)
             {
                 if (allEnemyWizards[i].activeSelf && Vector2.Distance(transform.position, allEnemyWizards[i].transform.position) < attackRange)
@@ -74,7 +62,9 @@ public class WizardStateNormal : WizardState
                     inBattle = true;
                     break;
                 }
+                else  counter++;
             }
+            if (counter == allEnemyWizards.Length) inBattle = false;
         }
     }
 
@@ -100,6 +90,32 @@ public class WizardStateNormal : WizardState
         if (!inBattle)
         {
             transform.position = Vector2.MoveTowards(transform.position, targetedTower.transform.position, speed * Time.deltaTime);
+        }
+    }
+
+    public void findNearestTower()
+    {
+        if (isBlue)
+        {
+            towersToTarget = new GameObject[GameObject.FindGameObjectsWithTag("GreenTower").Length];
+            towersToTarget = GameObject.FindGameObjectsWithTag("GreenTower");
+        }
+        else if (isGreen)
+        {
+            towersToTarget = new GameObject[GameObject.FindGameObjectsWithTag("BlueTower").Length];
+            towersToTarget = GameObject.FindGameObjectsWithTag("BlueTower");
+        }
+        //Trouver le code ici: https://forum.unity.com/threads/clean-est-way-to-find-nearest-object-of-many-c.44315/
+        float minDist = Mathf.Infinity;
+        Vector2 currentPos = transform.position;
+        foreach (GameObject tower in towersToTarget)
+        {
+            float dist = Vector2.Distance(tower.transform.position, currentPos);
+            if (dist < minDist)
+            {
+                targetedTower = tower;
+                minDist = dist;
+            }
         }
     }
 }
