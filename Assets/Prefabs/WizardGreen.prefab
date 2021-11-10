@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chosenSprite: {fileID: 21300000, guid: 56fdcbc1bd06d384b9d1c1a26983c09f, type: 3}
   projectilePrefab: {fileID: 5629559156810510818, guid: 8c6b23ab2a4c9dd4280862ed309f89a2, type: 3}
+  healthLevel: 30
 --- !u!50 &3355270062565032756
 Rigidbody2D:
   serializedVersion: 4
@@ -149,3 +150,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37e827362d4694b49810c7df0a76aa64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showDetails: 1

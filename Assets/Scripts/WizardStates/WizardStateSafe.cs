@@ -9,6 +9,10 @@ public class WizardStateSafe : WizardState
     // Start is called before the first frame update
     void Start()
     {
+        if (showDetails)
+        {
+            print("Il est en sécurité dans le chateau");
+        }
         isSafe = true;
     }
 
@@ -44,8 +48,11 @@ public class WizardStateSafe : WizardState
     {
         
     }
-
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        
+    }
+    private void OnCollisionStay2D(Collider2D collision)
     {
         if (!collision.gameObject.activeSelf)
         {

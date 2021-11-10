@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class WizardState : MonoBehaviour
 {
-    [SerializeField] bool showDetails;
+    [SerializeField] public bool showDetails;
     protected WizardManager wizardManager;
     protected float speed;
     protected bool hiddenInForest = false;
@@ -28,10 +28,6 @@ public abstract class WizardState : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        if (showDetails)
-        {
-            print("Changement d'état");
-        }
         if(tag == "GreenWizard")
         {
             isGreen = true;

@@ -8,6 +8,10 @@ public class WizardStateFlee : WizardState
     // Start is called before the first frame update
     void Start()
     {
+        if (showDetails)
+        {
+            print("Il essaie de s'enfuir");
+        }
         gameObject.GetComponent<SpriteRenderer>().flipY = true;
         speed = 3f;
         attackRange = 4f;
@@ -46,7 +50,7 @@ public class WizardStateFlee : WizardState
         foreach (GameObject forest in potentialForestToHideTo)
         {
             float dist = Vector2.Distance(forest.transform.position, currentPos);
-            if (dist <= minDist)
+            if (dist < minDist)
             {
                 nearestTower = forest;
                 minDist = dist;
@@ -59,6 +63,11 @@ public class WizardStateFlee : WizardState
         else if(Vector2.Distance(nearestTower.transform.position, currentPos) >= Vector2.Distance(nearestForest.transform.position, currentPos))
         {
             fleeingPosition = nearestForest;
+        }
+        else
+        {
+            //par défaut
+            fleeingPosition = potentialForestToHideTo[0];
         }
     }
 
@@ -79,7 +88,8 @@ public class WizardStateFlee : WizardState
 
     public override void MoveWizard()
     {
-        transform.position = Vector2.MoveTowards(transform.position, fleeingPosition.transform.position, speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(gameObject.transform.position, fleeingPosition.transform.position, speed * Time.deltaTime);
+        speed += 0.5f;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

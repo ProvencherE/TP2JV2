@@ -11,7 +11,6 @@ public class WizardManager : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private WizardState wizardState;
     public int healthLevel = 30;
-
     private Transform forestInContact = null;
     private GameObject projectile;
     private float damageReceiveInForest = 0.75f;
@@ -40,6 +39,7 @@ public class WizardManager : MonoBehaviour
 
     public void changeWizardState(wizardStateToSwitch nextState)
     {
+        bool wantToShowDetail = wizardState.showDetails;
         Destroy(wizardState);
 
         switch (nextState)
@@ -47,30 +47,35 @@ public class WizardManager : MonoBehaviour
             case wizardStateToSwitch.Normal:
                 {
                     wizardState = gameObject.AddComponent<WizardStateNormal>() as WizardStateNormal;
+                    wizardState.showDetails = wantToShowDetail;
                     wizardState.asignProjectile(projectile);
                     break;
                 }
             case wizardStateToSwitch.Fearless:
                 {
                     wizardState = gameObject.AddComponent<WizardStateFearless>() as WizardStateFearless;
+                    wizardState.showDetails = wantToShowDetail;
                     wizardState.asignProjectile(projectile);
                     break;
                 }
             case wizardStateToSwitch.Flee:
                 {
                     wizardState = gameObject.AddComponent<WizardStateFlee>() as WizardStateFlee;
+                    wizardState.showDetails = wantToShowDetail;
                     wizardState.asignProjectile(projectile);
                     break;
                 }
             case wizardStateToSwitch.Hide:
                 {
                     wizardState = gameObject.AddComponent<WizardStateHide>() as WizardStateHide;
+                    wizardState.showDetails = wantToShowDetail;
                     wizardState.asignProjectile(projectile);
                     break;
                 }
             case wizardStateToSwitch.Safe:
                 {
                     wizardState = gameObject.AddComponent<WizardStateSafe>() as WizardStateSafe;
+                    wizardState.showDetails = wantToShowDetail;
                     wizardState.asignProjectile(projectile);
                     break;
                 }
