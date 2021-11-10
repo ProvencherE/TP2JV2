@@ -178,6 +178,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Forest (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6731793401719489856, guid: 872f6400c8e6fd046890b86e0e287962, type: 3}
+      propertyPath: m_TagString
+      value: GreenForest
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 872f6400c8e6fd046890b86e0e287962, type: 3}
 --- !u!4 &167829127 stripped
@@ -751,6 +755,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Forest
       objectReference: {fileID: 0}
+    - target: {fileID: 6731793401719489856, guid: 872f6400c8e6fd046890b86e0e287962, type: 3}
+      propertyPath: m_TagString
+      value: BlueForest
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 872f6400c8e6fd046890b86e0e287962, type: 3}
 --- !u!4 &1211372250 stripped
@@ -812,6 +820,10 @@ PrefabInstance:
     - target: {fileID: 6731793401719489856, guid: 872f6400c8e6fd046890b86e0e287962, type: 3}
       propertyPath: m_Name
       value: Forest (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731793401719489856, guid: 872f6400c8e6fd046890b86e0e287962, type: 3}
+      propertyPath: m_TagString
+      value: GreenForest
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 872f6400c8e6fd046890b86e0e287962, type: 3}
@@ -1218,6 +1230,10 @@ PrefabInstance:
     - target: {fileID: 6731793401719489856, guid: 872f6400c8e6fd046890b86e0e287962, type: 3}
       propertyPath: m_Name
       value: Forest (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731793401719489856, guid: 872f6400c8e6fd046890b86e0e287962, type: 3}
+      propertyPath: m_TagString
+      value: BlueForest
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 872f6400c8e6fd046890b86e0e287962, type: 3}

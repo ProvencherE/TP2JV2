@@ -12,7 +12,6 @@ public class WizardStateFearless : WizardState
         gameObject.GetComponent<SpriteRenderer>().flipY = false;
         towersToTarget = new GameObject[3];
         speed = 3f;
-        attackRange = 2f;
         if (isBlue)
         {
             towersToTarget = GameObject.FindGameObjectsWithTag("GreenTower");
