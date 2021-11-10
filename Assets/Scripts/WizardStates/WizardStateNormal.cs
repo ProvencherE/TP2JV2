@@ -23,17 +23,17 @@ public class WizardStateNormal : WizardState
             towersToTarget = GameObject.FindGameObjectsWithTag("BlueTower");
             projectileBase = GameObject.FindGameObjectWithTag("GreenProjectile");
         }
-        if(numberSelector == 0 && towersToTarget[0].activeSelf)
+        //Trouver le code ici: https://forum.unity.com/threads/clean-est-way-to-find-nearest-object-of-many-c.44315/
+        float minDist = Mathf.Infinity;
+        Vector2 currentPos = transform.position;
+        foreach (GameObject tower in towersToTarget)
         {
-            targetedTower = towersToTarget[0];
-        }
-        else if (numberSelector == 1 && towersToTarget[1].activeSelf)
-        {
-            targetedTower = towersToTarget[1];
-        }
-        else if (numberSelector == 1 && towersToTarget[1].activeSelf)
-        {
-            targetedTower = towersToTarget[1];
+            float dist = Vector2.Distance(tower.transform.position, currentPos);
+            if(dist < minDist)
+            {
+                targetedTower = tower;
+                minDist = dist;
+            }
         }
     }
 
