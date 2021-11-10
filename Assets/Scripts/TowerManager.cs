@@ -27,6 +27,7 @@ public class TowerManager : MonoBehaviour
         if(life <= 0)
         {
             gameManager.GetComponent<GameManager>().towerDestroyed(this.gameObject);
+            gameObject.SetActive(false);
         }
     }
 

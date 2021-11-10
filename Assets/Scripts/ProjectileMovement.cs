@@ -50,7 +50,7 @@ public class ProjectileMovement : MonoBehaviour
     {
         if(gameObject.tag == "BlueProjectile")
         {
-            if(collision.gameObject.tag == "GreenTower")
+            if (collision.gameObject.tag == "GreenTower")
             {
                 collision.gameObject.GetComponent<TowerManager>().setDamage(damage);
                 gameObject.SetActive(false);

@@ -9,7 +9,7 @@ public abstract class WizardState : MonoBehaviour
     protected float speed;
     protected bool hiddenInForest = false;
     protected bool hiddenInTower = false;
-    protected const float MAX_HEALTH_LEVEL = 30;
+    public const int MAX_HEALTH_LEVEL = 30;
     protected float attackRange = 5f;
     protected bool isGreen = false;
     protected bool isBlue = false;
