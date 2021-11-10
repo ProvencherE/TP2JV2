@@ -33,6 +33,8 @@ public class WizardManager : MonoBehaviour
         if(healthLevel < 0)
         {
             gameObject.SetActive(false);
+            healthLevel = WizardState.MAX_HEALTH_LEVEL;
+            changeWizardState(wizardStateToSwitch.Normal);
         }
     }
 
