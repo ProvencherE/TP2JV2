@@ -62,3 +62,6 @@ TagManager:
   - name: Wizard
     uniqueID: 3062048667
     locked: 0
+  - name: Projectile
+    uniqueID: 2005263045
+    locked: 0
