@@ -9,7 +9,6 @@ public class WizardStateNormal : WizardState
     void Start()
     {
         gameObject.GetComponent<SpriteRenderer>().flipY = false;
-        int numberSelector = UnityEngine.Random.Range(0, 2);
         towersToTarget = new GameObject[3];
         speed = 3f;
         attackRange = 2f;
@@ -38,6 +37,10 @@ public class WizardStateNormal : WizardState
     // Update is called once per frame
     void Update()
     {
+        if (gameObject.GetComponent<WizardManager>().healthLevel < 0)
+        {
+            gameObject.SetActive(false);
+        }
         MoveWizard();
         CheckRange();
         ManageStateChange();
