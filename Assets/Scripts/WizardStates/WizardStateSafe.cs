@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class WizardStateSafe : WizardState
 {
-    int timeToRegenerate = 20;
+    private int regenMultiply = 3;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,20 +25,17 @@ public class WizardStateSafe : WizardState
 
     private void regenerateHealth()
     {
-        if(timeToRegenerate <= 0)
+        timerRegen -= Time.deltaTime;
+        if (timerRegen <= 0)
         {
-            timeToRegenerate = 30;
-            gameObject.GetComponent<WizardManager>().healthLevel += 1;
-        }
-        else
-        {
-            timeToRegenerate--;
+            wizardManager.heal(regenerationHPS * regenMultiply);
+            timerRegen = 1;
         }
     }
 
     public override void ManageStateChange()
     {
-        if(gameObject.GetComponent<WizardManager>().healthLevel >= MAX_HEALTH_LEVEL)
+        if(wizardManager.healthLevel >= MAX_HEALTH_LEVEL)
         {
             wizardManager.changeWizardState(WizardManager.wizardStateToSwitch.Normal);
         }

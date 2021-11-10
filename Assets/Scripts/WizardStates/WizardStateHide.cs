@@ -51,6 +51,7 @@ public class WizardStateHide : WizardState
         if(timerRegen <= 0)
         {
             wizardManager.heal(regenerationHPS * regenMultiply);
+            timerRegen = 1;
         }
     }
 }
