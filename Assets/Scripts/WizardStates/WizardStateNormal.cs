@@ -11,28 +11,7 @@ public class WizardStateNormal : WizardState
         gameObject.GetComponent<SpriteRenderer>().flipY = false;
         speed = 3f;
         attackRange = 4f;
-        if (isBlue)
-        {
-            towersToTarget = new GameObject[GameObject.FindGameObjectsWithTag("GreenTower").Length];
-            towersToTarget = GameObject.FindGameObjectsWithTag("GreenTower");
-        }
-        else if (isGreen)
-        {
-            towersToTarget = new GameObject[GameObject.FindGameObjectsWithTag("BlueTower").Length];
-            towersToTarget = GameObject.FindGameObjectsWithTag("BlueTower");
-        }
-        //Trouver le code ici: https://forum.unity.com/threads/clean-est-way-to-find-nearest-object-of-many-c.44315/
-        float minDist = Mathf.Infinity;
-        Vector2 currentPos = transform.position;
-        foreach (GameObject tower in towersToTarget)
-        {
-            float dist = Vector2.Distance(tower.transform.position, currentPos);
-            if(dist < minDist)
-            {
-                targetedTower = tower;
-                minDist = dist;
-            }
-        }
+        findNearestTower();
     }
 
     // Update is called once per frame
@@ -45,37 +24,6 @@ public class WizardStateNormal : WizardState
         MoveWizard();
         CheckRange();
         ManageStateChange();
-    }
-
-    private void CheckRange()
-    {
-        if (isBlue)
-        {
-            allEnemyWizards = new GameObject[GameObject.FindGameObjectsWithTag("GreenWizard").Length];
-            allEnemyWizards = GameObject.FindGameObjectsWithTag("GreenWizard");
-        }
-        if (isGreen)
-        {
-            allEnemyWizards = new GameObject[GameObject.FindGameObjectsWithTag("BlueWizard").Length];
-            allEnemyWizards = GameObject.FindGameObjectsWithTag("BlueWizard");
-        }
-        if(Vector2.Distance(transform.position, targetedTower.transform.position) < attackRange)
-        {
-            shootProjectile(targetedTower);
-            inBattle = true;
-        }
-        else
-        {
-            for (int i = 0; i < allEnemyWizards.Length; i++)
-            {
-                if (allEnemyWizards[i].activeSelf && Vector2.Distance(transform.position, allEnemyWizards[i].transform.position) < attackRange)
-                {
-                    shootProjectile(allEnemyWizards[i]);
-                    inBattle = true;
-                    break;
-                }
-            }
-        }
     }
 
     public void addKillToCount()
@@ -102,4 +50,6 @@ public class WizardStateNormal : WizardState
             transform.position = Vector2.MoveTowards(transform.position, targetedTower.transform.position, speed * Time.deltaTime);
         }
     }
+
+    
 }
