@@ -89,7 +89,7 @@ public class WizardStateFlee : WizardState
     public override void MoveWizard()
     {
         transform.position = Vector2.MoveTowards(gameObject.transform.position, fleeingPosition.transform.position, speed * Time.deltaTime);
-        speed += 0.5f;
+        speed += 0.01f;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
