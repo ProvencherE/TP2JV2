@@ -22,6 +22,9 @@ public abstract class WizardState : MonoBehaviour
     protected GameObject[] projectiles;
     protected GameObject projectileBase;
     protected GameObject targetedTower;
+    protected GameObject fleeingPosition;
+    protected GameObject[] potentialForestToHideTo;
+    protected GameObject[] towersToFleeTo;
     // Start is called before the first frame update
     void Awake()
     {

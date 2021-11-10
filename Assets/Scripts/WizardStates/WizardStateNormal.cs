@@ -9,35 +9,39 @@ public class WizardStateNormal : WizardState
     void Start()
     {
         gameObject.GetComponent<SpriteRenderer>().flipY = false;
-        int numberSelector = UnityEngine.Random.Range(0, 2);
-        towersToTarget = new GameObject[3];
         speed = 3f;
-        attackRange = 2f;
+        attackRange = 4f;
         if (isBlue)
         {
+            towersToTarget = new GameObject[GameObject.FindGameObjectsWithTag("GreenTower").Length];
             towersToTarget = GameObject.FindGameObjectsWithTag("GreenTower");
         }
-        if (isGreen)
+        else if (isGreen)
         {
+            towersToTarget = new GameObject[GameObject.FindGameObjectsWithTag("BlueTower").Length];
             towersToTarget = GameObject.FindGameObjectsWithTag("BlueTower");
         }
-        if(numberSelector == 0 && towersToTarget[0].activeSelf)
+        //Trouver le code ici: https://forum.unity.com/threads/clean-est-way-to-find-nearest-object-of-many-c.44315/
+        float minDist = Mathf.Infinity;
+        Vector2 currentPos = transform.position;
+        foreach (GameObject tower in towersToTarget)
         {
-            targetedTower = towersToTarget[0];
-        }
-        else if (numberSelector == 1 && towersToTarget[1].activeSelf)
-        {
-            targetedTower = towersToTarget[1];
-        }
-        else if (numberSelector == 1 && towersToTarget[1].activeSelf)
-        {
-            targetedTower = towersToTarget[1];
+            float dist = Vector2.Distance(tower.transform.position, currentPos);
+            if(dist < minDist)
+            {
+                targetedTower = tower;
+                minDist = dist;
+            }
         }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (gameObject.GetComponent<WizardManager>().healthLevel < 0)
+        {
+            gameObject.SetActive(false);
+        }
         MoveWizard();
         CheckRange();
         ManageStateChange();
