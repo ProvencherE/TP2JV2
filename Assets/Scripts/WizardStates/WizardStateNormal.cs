@@ -26,48 +26,6 @@ public class WizardStateNormal : WizardState
         ManageStateChange();
     }
 
-    private void CheckRange()
-    {
-        if (isBlue)
-        {
-            allEnemyWizards = new GameObject[GameObject.FindGameObjectsWithTag("GreenWizard").Length];
-            allEnemyWizards = GameObject.FindGameObjectsWithTag("GreenWizard");
-        }
-        if (isGreen)
-        {
-            allEnemyWizards = new GameObject[GameObject.FindGameObjectsWithTag("BlueWizard").Length];
-            allEnemyWizards = GameObject.FindGameObjectsWithTag("BlueWizard");
-        }
-        if(Vector2.Distance(transform.position, targetedTower.transform.position) < attackRange)
-        {
-            if (targetedTower.activeSelf)
-            {
-                shootProjectile(targetedTower);
-                inBattle = true;
-            }
-            else
-            {
-                findNearestTower();
-                inBattle = false;
-            }
-        }
-        else
-        {
-            int counter = 0;
-            for (int i = 0; i < allEnemyWizards.Length; i++)
-            {
-                if (allEnemyWizards[i].activeSelf && Vector2.Distance(transform.position, allEnemyWizards[i].transform.position) < attackRange)
-                {
-                    shootProjectile(allEnemyWizards[i]);
-                    inBattle = true;
-                    break;
-                }
-                else  counter++;
-            }
-            if (counter == allEnemyWizards.Length) inBattle = false;
-        }
-    }
-
     public void addKillToCount()
     {
         killCount++;
@@ -93,29 +51,5 @@ public class WizardStateNormal : WizardState
         }
     }
 
-    public void findNearestTower()
-    {
-        if (isBlue)
-        {
-            towersToTarget = new GameObject[GameObject.FindGameObjectsWithTag("GreenTower").Length];
-            towersToTarget = GameObject.FindGameObjectsWithTag("GreenTower");
-        }
-        else if (isGreen)
-        {
-            towersToTarget = new GameObject[GameObject.FindGameObjectsWithTag("BlueTower").Length];
-            towersToTarget = GameObject.FindGameObjectsWithTag("BlueTower");
-        }
-        //Trouver le code ici: https://forum.unity.com/threads/clean-est-way-to-find-nearest-object-of-many-c.44315/
-        float minDist = Mathf.Infinity;
-        Vector2 currentPos = transform.position;
-        foreach (GameObject tower in towersToTarget)
-        {
-            float dist = Vector2.Distance(tower.transform.position, currentPos);
-            if (dist < minDist)
-            {
-                targetedTower = tower;
-                minDist = dist;
-            }
-        }
-    }
+    
 }
