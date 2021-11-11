@@ -41,7 +41,7 @@ public class WizardStateFlee : WizardState
         foreach (GameObject tower in towersToFleeTo)
         {
             float dist = Vector2.Distance(tower.transform.position, currentPos);
-            if (dist <= minDist)
+            if (dist < minDist)
             {
                 nearestTower = tower;
                 minDist = dist;
@@ -52,7 +52,7 @@ public class WizardStateFlee : WizardState
             float dist = Vector2.Distance(forest.transform.position, currentPos);
             if (dist < minDist)
             {
-                nearestTower = forest;
+                nearestForest = forest;
                 minDist = dist;
             }
         }
@@ -64,11 +64,7 @@ public class WizardStateFlee : WizardState
         {
             fleeingPosition = nearestForest;
         }
-        else
-        {
-            //par défaut
-            fleeingPosition = potentialForestToHideTo[0];
-        }
+        print(fleeingPosition);
     }
 
     // Update is called once per frame

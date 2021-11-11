@@ -41,7 +41,7 @@ public class WizardStateHide : WizardState
 
     private void ManageAction()
     {
-        CheckRange();
+        //CheckRange();
         if(!inBattle) Regenerate();
     }
 
