@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject blueWizard;
 
     private float timerRespawn;
+    private bool isOver;
     private List<GameObject> greenTowers;
     private List<GameObject> blueTowers;
     private GameObject[] greenWizards;
@@ -26,6 +28,8 @@ public class GameManager : MonoBehaviour
         greenTowers = new List<GameObject>(GameObject.FindGameObjectsWithTag("GreenTower"));
         blueTowers = new List<GameObject>(GameObject.FindGameObjectsWithTag("BlueTower"));
         instantiateWizard();
+        isOver = false;
+        gameOverText.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -44,7 +48,7 @@ public class GameManager : MonoBehaviour
             Application.Quit();
             UnityEditor.EditorApplication.isPlaying = false;
         }
-        spawn();
+        if(!isOver) spawn();
     }
 
     private void spawn()
@@ -77,7 +81,7 @@ public class GameManager : MonoBehaviour
     }
 
     private GameObject randomTower(List<GameObject> towers)
-    {
+    {   
         return towers[UnityEngine.Random.Range(0, towers.Count)];
     }
 
@@ -97,6 +101,17 @@ public class GameManager : MonoBehaviour
 
     public void towerDestroyed(GameObject towerDestroyed)
     {
+        blueTowers.Remove(towerDestroyed);
         greenTowers.Remove(towerDestroyed);
+        if(blueTowers.Count == 0 || greenTowers.Count == 0)
+        {
+            isOver = true;
+            gameOverText.gameObject.SetActive(true);
+            for(int i = 0; i < nbMaxWizard; i++)
+            {
+                greenWizards[i].GetComponent<WizardManager>().changeWizardState(WizardManager.wizardStateToSwitch.Inactive);
+                blueWizards[i].GetComponent<WizardManager>().changeWizardState(WizardManager.wizardStateToSwitch.Inactive);
+            }
+        }
     }
 }

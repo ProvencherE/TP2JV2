@@ -6,7 +6,7 @@ public class WizardManager : MonoBehaviour
 {
     [SerializeField] private Sprite chosenSprite;
     [SerializeField] private GameObject projectilePrefab;
-    public enum wizardStateToSwitch { Normal, Flee, Hide, Safe, Fearless }
+    public enum wizardStateToSwitch { Normal, Flee, Hide, Safe, Fearless, Inactive }
 
     private SpriteRenderer spriteRenderer;
     private WizardState wizardState;
@@ -75,6 +75,13 @@ public class WizardManager : MonoBehaviour
             case wizardStateToSwitch.Safe:
                 {
                     wizardState = gameObject.AddComponent<WizardStateSafe>() as WizardStateSafe;
+                    wizardState.showDetails = wantToShowDetail;
+                    wizardState.asignProjectile(projectile);
+                    break;
+                }
+            case wizardStateToSwitch.Inactive:
+                {
+                    wizardState = gameObject.AddComponent<WizardStateInactive>() as WizardStateInactive;
                     wizardState.showDetails = wantToShowDetail;
                     wizardState.asignProjectile(projectile);
                     break;

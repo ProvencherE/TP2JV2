@@ -44,7 +44,7 @@ public class WizardStateFearless : WizardState
         if (!inBattle)
         {
             MoveWizard();
-            CheckRange();
+            CheckRangeFearless();
             ManageStateChange();
         }
         else
@@ -65,8 +65,8 @@ public class WizardStateFearless : WizardState
             timeToRegenerate--;
         }
     }
-
-    private void CheckRange()
+    
+    protected void CheckRangeFearless()
     {
         if (isBlue)
         {
