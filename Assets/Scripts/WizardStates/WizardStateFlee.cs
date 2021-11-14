@@ -10,7 +10,7 @@ public class WizardStateFlee : WizardState
     {
         if (showDetails)
         {
-            print("Il essaie de s'enfuir");
+            print("Il entre en état de peur");
         }
         gameObject.GetComponent<SpriteRenderer>().flipY = true;
         speed = 3f;

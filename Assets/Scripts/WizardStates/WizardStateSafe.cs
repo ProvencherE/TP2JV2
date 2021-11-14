@@ -11,7 +11,7 @@ public class WizardStateSafe : WizardState
     {
         if (showDetails)
         {
-            print("Il est en s�curit� dans le chateau");
+            print("Il entre en état de sécurité");
         }
         isSafe = true;
     }

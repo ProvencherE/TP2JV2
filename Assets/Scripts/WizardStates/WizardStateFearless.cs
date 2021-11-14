@@ -8,6 +8,10 @@ public class WizardStateFearless : WizardState
     // Start is called before the first frame update
     void Start()
     {
+        if (showDetails)
+        {
+            print("Il entre en état intrépide");
+        }
         gameObject.GetComponent<SpriteRenderer>().flipY = false;
         towersToTarget = new GameObject[3];
         speed = 3f;

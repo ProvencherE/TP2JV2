@@ -8,6 +8,10 @@ public class WizardStateNormal : WizardState
     // Start is called before the first frame update
     void Start()
     {
+        if (showDetails)
+        {
+            print("Il entre en état normal");
+        }
         gameObject.GetComponent<SpriteRenderer>().flipY = false;
         speed = 3f;
         attackRange = 4f;

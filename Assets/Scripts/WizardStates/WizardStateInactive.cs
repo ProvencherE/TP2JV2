@@ -8,7 +8,10 @@ public class WizardStateInactive : WizardState
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (showDetails)
+        {
+            print("Il entre en état Inactif");
+        }
     }
 
     // Update is called once per frame
