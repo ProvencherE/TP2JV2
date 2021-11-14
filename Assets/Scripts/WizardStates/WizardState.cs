@@ -17,7 +17,7 @@ public abstract class WizardState : MonoBehaviour
     protected bool isSafe = false;
     protected bool isHiding = false;
     protected int killCount = 0;
-    protected int regenerationHPS = 5;
+    protected int regenerationHPS = 2;
     protected float timerRegen = 1;
     protected GameObject[] towersToTarget;
     protected GameObject[] allEnemyWizards;

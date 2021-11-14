@@ -40,16 +40,10 @@ public class WizardStateFearless : WizardState
     // Update is called once per frame
     void Update()
     {
-        if (!inBattle)
-        {
-            MoveWizard();
-            CheckRangeFearless();
-            ManageStateChange();
-        }
-        else
-        {
-            regenerateHealth();
-        }
+        MoveWizard();
+        CheckRangeFearless();
+        ManageStateChange();
+        regenerateHealth();
     }
 
     protected override void regenerateHealth()
