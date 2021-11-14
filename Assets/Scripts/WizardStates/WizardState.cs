@@ -48,6 +48,8 @@ public abstract class WizardState : MonoBehaviour
 
     public abstract void ManageStateChange();
 
+    protected abstract void regenerateHealth();
+
     public void asignProjectile(GameObject projectile)
     {
         projectileBase = projectile;

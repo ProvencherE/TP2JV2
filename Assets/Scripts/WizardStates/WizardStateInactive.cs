@@ -26,4 +26,9 @@ public class WizardStateInactive : WizardState
     {
         
     }
+
+    protected override void regenerateHealth()
+    {
+        
+    }
 }

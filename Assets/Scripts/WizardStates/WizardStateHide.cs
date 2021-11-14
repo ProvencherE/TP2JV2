@@ -14,7 +14,7 @@ public class WizardStateHide : WizardState
     // Update is called once per frame
     void Update()
     {
-        ManageAction();
+        regenerateHealth();
         ManageStateChange();
     }
 
@@ -39,19 +39,16 @@ public class WizardStateHide : WizardState
         //Never
     }
 
-    private void ManageAction()
+    protected override void regenerateHealth()
     {
-        //CheckRange();
-        if(!inBattle) Regenerate();
-    }
-
-    private void Regenerate()
-    {
-        timerRegen -= Time.deltaTime;
-        if(timerRegen <= 0)
+        if (!inBattle)
         {
-            wizardManager.heal(regenerationHPS * regenMultiply);
-            timerRegen = 1;
+            timerRegen -= Time.deltaTime;
+            if (timerRegen <= 0)
+            {
+                wizardManager.heal(regenerationHPS * regenMultiply);
+                timerRegen = 1;
+            }
         }
     }
 }

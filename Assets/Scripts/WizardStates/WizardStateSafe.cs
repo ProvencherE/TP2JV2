@@ -23,7 +23,7 @@ public class WizardStateSafe : WizardState
         ManageStateChange();
     }
 
-    private void regenerateHealth()
+    protected override void regenerateHealth()
     {
         timerRegen -= Time.deltaTime;
         if (timerRegen <= 0)

@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class WizardStateFearless : WizardState
 {
-    int timeToRegenerate = 60;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,10 +36,6 @@ public class WizardStateFearless : WizardState
     // Update is called once per frame
     void Update()
     {
-        if(gameObject.GetComponent<WizardManager>().healthLevel < 0)
-        {
-            gameObject.SetActive(false);
-        }
         if (!inBattle)
         {
             MoveWizard();
@@ -53,16 +48,13 @@ public class WizardStateFearless : WizardState
         }
     }
 
-    private void regenerateHealth()
+    protected override void regenerateHealth()
     {
-        if (timeToRegenerate <= 0)
+        timerRegen -= Time.deltaTime;
+        if (timerRegen <= 0)
         {
-            timeToRegenerate = 60;
-            gameObject.GetComponent<WizardManager>().healthLevel += 1;
-        }
-        else
-        {
-            timeToRegenerate--;
+            wizardManager.heal(regenerationHPS);
+            timerRegen = 1;
         }
     }
     

@@ -64,22 +64,28 @@ public class WizardStateFlee : WizardState
         {
             fleeingPosition = nearestForest;
         }
-        print(fleeingPosition);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(gameObject.GetComponent<WizardManager>().healthLevel <= 0)
-        {
-            gameObject.SetActive(false);
-        }
         MoveWizard();
+        regenerateHealth();
     }
 
     public override void ManageStateChange()
     {
         
+    }
+
+    protected override void regenerateHealth()
+    {
+        timerRegen -= Time.deltaTime;
+        if (timerRegen <= 0)
+        {
+            wizardManager.heal(regenerationHPS);
+            timerRegen = 1;
+        }
     }
 
     public override void MoveWizard()

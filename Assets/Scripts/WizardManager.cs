@@ -29,11 +29,11 @@ public class WizardManager : MonoBehaviour
 
     private void Update()
     {
-        if(healthLevel < 0)
+        if(healthLevel <= 0)
         {
-            gameObject.SetActive(false);
             healthLevel = WizardState.MAX_HEALTH_LEVEL;
             changeWizardState(wizardStateToSwitch.Normal);
+            gameObject.SetActive(false);
         }
     }
 

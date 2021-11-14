@@ -17,13 +17,10 @@ public class WizardStateNormal : WizardState
     // Update is called once per frame
     void Update()
     {
-        if (gameObject.GetComponent<WizardManager>().healthLevel < 0)
-        {
-            gameObject.SetActive(false);
-        }
         MoveWizard();
         CheckRange();
         ManageStateChange();
+        regenerateHealth();
     }
 
     public void addKillToCount()
@@ -51,5 +48,16 @@ public class WizardStateNormal : WizardState
         }
     }
 
-    
+    protected override void regenerateHealth()
+    {
+        if (!inBattle)
+        {
+            timerRegen -= Time.deltaTime;
+            if (timerRegen <= 0)
+            {
+                wizardManager.heal(regenerationHPS);
+                timerRegen = 1;
+            }
+        }
+    }
 }
