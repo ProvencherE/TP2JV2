@@ -5,7 +5,7 @@ using UnityEngine;
 public class ProjectileMovement : MonoBehaviour
 {
     [SerializeField] private float projectileSpeed;
-    [SerializeField] private int damage;
+    [SerializeField] private int maxDamage;
     private GameObject target;
     // Start is called before the first frame update
     void Start()
@@ -45,11 +45,11 @@ public class ProjectileMovement : MonoBehaviour
         {
             if (collision.gameObject.tag == "GreenTower")
             {
-                collision.gameObject.GetComponent<TowerManager>().setDamage(damage);
+                collision.gameObject.GetComponent<TowerManager>().setDamage(randomDamage());
                 gameObject.SetActive(false);
             }else if(collision.gameObject.tag == "GreenWizard")
             {
-                collision.gameObject.GetComponent<WizardManager>().setDamage(damage);
+                collision.gameObject.GetComponent<WizardManager>().setDamage(randomDamage());
                 gameObject.SetActive(false);
             }
         }
@@ -57,14 +57,19 @@ public class ProjectileMovement : MonoBehaviour
         {
             if (collision.gameObject.tag == "BlueTower")
             {
-                collision.gameObject.GetComponent<TowerManager>().setDamage(damage);
+                collision.gameObject.GetComponent<TowerManager>().setDamage(randomDamage());
                 gameObject.SetActive(false);
             }
             else if (collision.gameObject.tag == "BlueWizard")
             {
-                collision.gameObject.GetComponent<WizardManager>().setDamage(damage);
+                collision.gameObject.GetComponent<WizardManager>().setDamage(randomDamage());
                 gameObject.SetActive(false);
             }
         }
+    }
+
+    private int randomDamage()
+    {
+        return Random.Range(1, ++maxDamage);
     }
 }

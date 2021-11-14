@@ -1,8 +1,8 @@
 tour pv : 100
 mage pv : 30
 attack speed : 1/sec
-dégat : 1-5
-spawn speed : 10
+dégat : 1-5/10
+spawn speed : 5
 nb max mage : 10
 range mage : 5f
 mage mouvement speed : 3f
